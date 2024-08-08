@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+</head>
+
+<body>
+    <div id="connectMetaMask">
+        <p id="connectWalletMessage">Please connect your metamask wallet to vote</p>
+        <button id="connectWallet">Connect Wallet</button>
+    </div>
+    <div id="votingStation" style="display:none;">
+        <div id="timer">
+            <p id="timerMessage"><span id="time">123</span> seconds left</p>
+        </div>
+        <div id="mainBoard">
+            <table id="candidateTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Candidate rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        <div id="voteForm">
+            <p>Please select the ID of the candidate you would like to vote</p>
+            <label>
+                <input type="number" id="vote" />
+                <button id="sendVote">Send Vote</button>
+            </label>
+        </div>
+        <div id="showResultContainer">
+            <button id="showResult">Show Result</button>
+        </div>
+        <div id="resultContainer" style="display:none;">
+            <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th>Candidate Name</th>
+                        <th>Votes</th>
+                    </tr>
+                </thead>
+                <tbody id="resultBody">
+                    <!-- Results will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="admin" style="display:none;">
+            <p id="adminHeading">Comelec only</p>
+            <div id="tools">
+                <div id="addCandidate">
+                    <input type="text" id="candidateName" placeholder="Enter candidate name">
+                    <button id="addCandidatebtn">Add Candidate</button><br><br>
+
+                    <button id="clearCandidates">Clear Candidates</button>
+                    <ul id="candidateList"></ul>
+                </div>
+                <div id="startElectionSection">
+                    <p id="startElectionMessage">Start Election</p>
+                    <input type="number" id="electionDuration" placeholder="duration in minutes" />
+                    <button id="startElection">Start Election</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
